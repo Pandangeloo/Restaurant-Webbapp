@@ -3,9 +3,11 @@
 # + sessions will be stored in it in some examples
 # if the live.db is missing the backend will create it
 # from template.db
+# --- Databases ---
 backend/databases/live.sqlite3
+backend/_db.sqlite3
 
-# Logs
+# --- Logs ---
 logs
 *.log
 npm-debug.log*
@@ -14,17 +16,39 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# --- Node / Frontend ---
+node_modules/
+dist/
+dist-ssr/
 *.local
+.cache/
+.vite/
+.turbo/
+coverage/
 
-# Editor directories and files
+# --- Visual Studio / .NET ---
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+bin/
+obj/
+Debug/
+Release/
+TestResults/
+*.nupkg
+*.snupkg
+*.PublishSettings
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
+# --- Editor settings ---
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
+.idea/
 *.ntvs*
 *.njsproj
 *.sln
