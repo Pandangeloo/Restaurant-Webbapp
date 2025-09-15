@@ -6,6 +6,8 @@
 # --- Databases ---
 backend/databases/live.sqlite3
 backend/_db.sqlite3
+backend/bin
+backend/obj
 
 # --- Logs ---
 logs
