@@ -3,6 +3,13 @@
 # + sessions will be stored in it in some examples
 # if the live.db is missing the backend will create it
 # from template.db
+backend/databases/live.sqlite3
+
+# Ignore the database being run
+# since SQLite might change it during runtime
+# + sessions will be stored in it in some examples
+# if the live.db is missing the backend will create it
+# from template.db
 # --- Databases ---
 backend/databases/live.sqlite3
 backend/_db.sqlite3
