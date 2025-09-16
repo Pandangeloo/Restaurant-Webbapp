@@ -1,16 +1,20 @@
-//Todo: I want 4 icons from socialmedia. when you click onn them u go to another website.
-import { BsInstagram } from "react-icons/bs";
-import { BsFacebook } from "react-icons/bs";
-import { BsLinkedin } from "react-icons/bs";
-import { BsTiktok } from "react-icons/bs";
+import { BsInstagram, BsFacebook, BsLinkedin, BsTiktok } from "react-icons/bs";
 
 export default function SocialIcons() {
   return (
     <>
-      <BsInstagram />
-      <BsFacebook />
-      <BsLinkedin />
-      <BsTiktok />
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <BsInstagram />
+      </a>
+      <a href="https://facebook.com" target="_blank" rel="noopener norefferer">
+        <BsFacebook />
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener norefferer">
+        <BsLinkedin />
+      </a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener norefferer">
+        <BsTiktok />
+      </a>
     </>
   );
 }
