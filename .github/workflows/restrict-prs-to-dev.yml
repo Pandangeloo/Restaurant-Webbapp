@@ -1,0 +1,20 @@
+name: Restrict PRs to main (only from dev)
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+    branches: [ main ]
+
+jobs:
+  allow-only-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block PRs to main that do not come from dev
+        run: |
+          echo "Base branch: ${{ github.base_ref }}"
+          echo "Head branch: ${{ github.head_ref }}"
+          if [ "${{ github.base_ref }}" = "main" ] && [ "${{ github.head_ref }}" != "dev" ]; then
+            echo "❌ Only PRs from 'dev' are allowed to merge into 'main'."
+            exit 1
+          fi
+          echo "✅ Allowed: PR is coming from 'dev'."
