@@ -7,8 +7,12 @@ import NotFoundPage from "./pages/NotFoundPage.tsx";
 import BookTablePage from "./pages/BookTablePage.tsx";
 import EventsPage from "./pages/EventsPage.tsx";
 import MenuPage from "./pages/MenuPage.tsx";
+import form from "./pages/form.tsx";
 
-export default [NotFoundPage, BookTablePage, EventsPage, MenuPage]
+
+export default [NotFoundPage, BookTablePage, EventsPage, MenuPage, form]
+
+
   // map the route property of each page component to a Route
   .map((x) => ({ element: createElement(x), ...x.route } as Route))
   // sort by index (and if an item has no index, sort as index 0)
