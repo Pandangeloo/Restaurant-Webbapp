@@ -1,4 +1,5 @@
 name: Restrict PRs to main (only from dev)
+permissions: read-all
 
 on:
   pull_request:
