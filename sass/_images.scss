@@ -23,7 +23,7 @@ main {
       transition: filter 0.4s;
 
       &.bw {
-        filter: grayscale(100%)
+        filter: grayscale(100%);
       }
     }
 
@@ -43,4 +43,13 @@ main {
   img.bw {
     filter: grayscale(100%) sepia(20%);
   }
+}
+
+//TODO: Change this to better code? This is Chatgpt to quickly fix my img problem.
+main img[src*="MenuTest"] {
+  object-fit: contain;
+  aspect-ratio: auto; /* tar bort tvång på bildens ratio */
+  width: 100%; /* fyller ut bredden */
+  height: auto; /* behåller höjden proportionerligt */
+  object-position: center; /* centrera istället för top left */
 }
