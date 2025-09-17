@@ -6,6 +6,7 @@ FormPage.route = {
   index: 3,
 };
 
+// Todo: When submitting form - message to admin? is it possible? or just that admin has an extra page that this info is available. add info in database? and admin can se if they are contacted. remove. edit and so on.
 export default function FormPage() {
   return (
     <Row>
@@ -37,6 +38,13 @@ export default function FormPage() {
                 type="text"
                 name="nameInput"
                 placeholder="Last name"
+              ></Form.Control>
+            </Form.Label>
+            <Form.Label>
+              <Form.Control
+                type="number" // TODO: is this correct??
+                name="mobileNumber"
+                placeholder="Mobilenumber"
               ></Form.Control>
             </Form.Label>
           </Form.Group>
