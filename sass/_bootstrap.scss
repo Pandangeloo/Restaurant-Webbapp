@@ -19,3 +19,9 @@ $enable-negative-margins: true;
 .container {
   max-width: 970px;
 }
+
+.form-control,
+.form-select {
+  padding: 10px;
+  margin: 10px 0;
+}
