@@ -12,8 +12,9 @@ export default function BookTablePage() {
   const [form] = useState({
     name: "",
     guests: "",
-    reservation_time: "",
     email: "",
+    date: "",
+    time: "",
   });
   return (
     <>
@@ -50,11 +51,26 @@ export default function BookTablePage() {
                 required
               ></Form.Control>
               <Form.Control
-                type="datetime-local"
-                name="reservation_time"
-                value={form.reservation_time}
+                type="date"
+                name="date"
+                value={form.date}
                 required
-              ></Form.Control>
+                className="mb-2"
+              />
+
+              {/* Tid */}
+              <Form.Select name="time" value={form.time} required>
+                <option value="">Select a time</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+              </Form.Select>
             </Form.Label>
           </Form.Group>
           <Button className="mt-4 float-end">Book</Button>
@@ -92,11 +108,26 @@ export default function BookTablePage() {
                 required
               ></Form.Control>
               <Form.Control
-                type="datetime-local"
-                name="reservation_time"
-                value={form.reservation_time}
+                type="date"
+                name="date"
+                value={form.date}
                 required
-              ></Form.Control>
+                className="mb-2"
+              />
+
+              {/* Tid */}
+              <Form.Select name="time" value={form.time} required>
+                <option value="">Select a time</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+              </Form.Select>
             </Form.Label>
           </Form.Group>
           <Button className="mt-4 float-end">Enquire now</Button>
