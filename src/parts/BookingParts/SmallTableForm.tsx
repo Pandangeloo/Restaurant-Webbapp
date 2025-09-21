@@ -1,12 +1,12 @@
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Image from "../Image";
 import { useState } from "react";
+import createBooking from "../../utils/createBookings";
 
 export default function BookTablePage() {
   const [form, setForm] = useState({
     name: "",
-    guests: "",
-    email: "",
+    guests: 1,
     date: "",
     time: "",
   });
@@ -16,8 +16,22 @@ export default function BookTablePage() {
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: name === "guests" ? Number(value) : value,
+    });
   };
+
+  const handleSubmit = async () => {
+    try {
+      await createBooking(form);
+      alert("Saved");
+    } catch (err: any) {
+      alert("Wrong:" + err.message);
+    }
+  };
+
   return (
     <>
       <Row>
@@ -78,7 +92,9 @@ export default function BookTablePage() {
               </Form.Select>
             </Form.Label>
           </Form.Group>
-          <Button className="mt-4 float-end">Book</Button>
+          <Button className="mt-4 float-end" onClick={handleSubmit}>
+            Book
+          </Button>
         </Col>
       </Row>
     </>
