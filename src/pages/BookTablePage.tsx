@@ -1,5 +1,6 @@
 import { Row, Col } from "react-bootstrap";
-import Image from "../parts/Image";
+import SmallTableForm from "../parts/BookingParts/SmallTableForm";
+import LargeTableForm from "../parts/BookingParts/LargeTableForm";
 
 BookTablePage.route = {
   path: "/book-a-table",
@@ -17,19 +18,10 @@ export default function BookTablePage() {
       </Row>
       <Row>
         <Col md={6}>
-          <h5>Book a table</h5>
-          <Image
-            src="/images/BookTable.jpg"
-            alt="A group photo of our employees."
-          />
+          <SmallTableForm></SmallTableForm>
         </Col>
-
         <Col md={6}>
-          <h5>Book a table for large groups</h5>
-          <Image
-            src="/images/BookTableGroup.jpg"
-            alt="A group photo of our employees."
-          />
+          <LargeTableForm></LargeTableForm>
         </Col>
       </Row>
     </>
