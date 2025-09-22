@@ -3,6 +3,7 @@ import Image from "../Image";
 import { useState } from "react";
 import createBooking from "../../utils/createBookings";
 
+//TODO: Change ALERTS to something nicer. Add email for not logged in user?
 export default function BookTablePage() {
   const [form, setForm] = useState({
     name: "",
