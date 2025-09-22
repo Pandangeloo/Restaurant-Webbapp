@@ -9,6 +9,7 @@ import EventsPage from "./pages/EventsPage.tsx";
 import MenuPage from "./pages/MenuPage.tsx";
 import form from "./pages/form.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
+import RegisterPage from "./pages/RegisterPage.tsx";
 
 export default [
   NotFoundPage,
@@ -17,6 +18,7 @@ export default [
   MenuPage,
   form,
   LoginPage,
+  RegisterPage,
 ]
 
   // map the route property of each page component to a Route
