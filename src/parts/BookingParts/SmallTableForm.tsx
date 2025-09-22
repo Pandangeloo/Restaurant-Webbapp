@@ -19,7 +19,8 @@ export default function BookTablePage() {
     const { name, value } = e.target;
     setForm({
       ...form,
-      [name]: name === "guests" ? Number(value) : value,
+      [name]:
+        name === "guests" ? Math.max(1, Math.min(12, Number(value))) : value,
     });
   };
 
