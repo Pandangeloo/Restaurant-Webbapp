@@ -24,7 +24,14 @@ export default function BookTablePage() {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.name || !form.guests || !form.time || !form.date) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
     try {
       await createBooking(form);
       alert("Saved");
@@ -52,7 +59,6 @@ export default function BookTablePage() {
                 placeholder="Your name"
                 value={form.name}
                 onChange={handleChange}
-                required
               ></Form.Control>
               <Form.Control
                 type="number"
@@ -62,7 +68,6 @@ export default function BookTablePage() {
                 max={12}
                 value={form.guests}
                 onChange={handleChange}
-                required
               ></Form.Control>
               <Form.Control
                 type="date"
@@ -70,15 +75,12 @@ export default function BookTablePage() {
                 value={form.date}
                 className="mb-2"
                 onChange={handleChange}
-                required
               />
 
-              {/* Tid */}
               <Form.Select
                 name="time"
                 value={form.time}
                 onChange={handleChange}
-                required
               >
                 <option value="">Select a time</option>
                 <option value="17:00">17:00</option>
