@@ -45,11 +45,17 @@ main {
   }
 }
 
-//TODO: Change this to better code? This is Chatgpt to quickly fix my img problem.
-main img[src*="MenuTest"] {
-  object-fit: contain;
-  aspect-ratio: auto; /* tar bort tvång på bildens ratio */
-  width: 100%; /* fyller ut bredden */
-  height: auto; /* behåller höjden proportionerligt */
-  object-position: center; /* centrera istället för top left */
+.menu-image {
+  object-fit: contain !important;
+  aspect-ratio: auto !important;
+
+  display: block;
+  margin: 0 auto;
+
+  max-width: 100%;
+  max-height: 80vh;
+  height: auto;
+  width: auto;
+
+  object-position: center !important;
 }
