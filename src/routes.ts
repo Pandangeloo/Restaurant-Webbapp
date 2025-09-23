@@ -7,11 +7,19 @@ import NotFoundPage from "./pages/NotFoundPage.tsx";
 import BookTablePage from "./pages/BookTablePage.tsx";
 import EventsPage from "./pages/EventsPage.tsx";
 import MenuPage from "./pages/MenuPage.tsx";
-import form from "./pages/form.tsx";
 
+import LoginPage from "./pages/LoginPage.tsx";
+import RegisterPage from "./pages/RegisterPage.tsx";
 
-export default [NotFoundPage, BookTablePage, EventsPage, MenuPage, form]
+export default [
+  NotFoundPage,
+  BookTablePage,
+  EventsPage,
+  MenuPage,
 
+  LoginPage,
+  RegisterPage,
+]
 
   // map the route property of each page component to a Route
   .map((x) => ({ element: createElement(x), ...x.route } as Route))
