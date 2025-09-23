@@ -7,7 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage.tsx";
 import BookTablePage from "./pages/BookTablePage.tsx";
 import EventsPage from "./pages/EventsPage.tsx";
 import MenuPage from "./pages/MenuPage.tsx";
-import form from "./pages/form.tsx";
+
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/RegisterPage.tsx";
 
@@ -16,7 +16,7 @@ export default [
   BookTablePage,
   EventsPage,
   MenuPage,
-  form,
+
   LoginPage,
   RegisterPage,
 ]
