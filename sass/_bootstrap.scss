@@ -4,7 +4,7 @@ $font-size-base: 1.1rem;
 $line-height-base: 1.4;
 $navbar-dark-color: rgba(rgb(195, 183, 221), 0.8) !default;
 $navbar-dark-hover-color: rgba(white, 0.9) !default;
-$primary: rgb(12, 6, 73);
+$primary: rgb(23, 20, 46);
 $enable-negative-margins: true;
 
 // Import bootstrap
@@ -24,4 +24,18 @@ $enable-negative-margins: true;
 .form-select {
   padding: 10px;
   margin: 10px 0;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  left: 5%;
+  right: 5%;
+}
+
+body {
+  background-color: #f1eee7;
+  margin: 0;
+  padding: 0;
 }

@@ -1,5 +1,4 @@
 import { Col, Row } from "react-bootstrap";
-import Image from "../parts/Image";
 
 MenuPage.route = {
   path: "/menu",
@@ -12,9 +11,11 @@ export default function MenuPage() {
     <>
       <Row>
         <Col>
-          <h1>Hello</h1>
-
-          <Image src="/images/MenuTest.jpg" alt="A picture of a menu"></Image>
+          <img
+            src="/images/Menu.png"
+            alt="The Axolotl Menu"
+            className="menu-image"
+          />
         </Col>
       </Row>
     </>
