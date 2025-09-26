@@ -39,6 +39,11 @@ export default function AdminPage() {
 
   return (
     <div>
+      <h1>Welcome Admin!</h1>
+      <p>
+        Here you can see all the bookings, both past and future for now. More
+        things coming soon
+      </p>
       <h2>Bookings</h2>
       <Table striped bordered hover>
         <thead>
