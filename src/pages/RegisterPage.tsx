@@ -2,7 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import registerUser from "../utils/registerUser";
+import { registerUser } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 
 RegisterPage.route = {

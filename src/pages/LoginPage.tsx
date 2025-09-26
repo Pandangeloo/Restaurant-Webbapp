@@ -1,7 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import login from "../utils/login";
+import { login } from "../utils/auth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
