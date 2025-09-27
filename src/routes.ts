@@ -10,6 +10,7 @@ import MenuPage from "./pages/MenuPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/RegisterPage.tsx";
+import AdminPage from "./pages/AdminPage.tsx";
 
 export default [
   NotFoundPage,
@@ -19,6 +20,7 @@ export default [
   HomePage,
   LoginPage,
   RegisterPage,
+  AdminPage,
 ]
 
   // map the route property of each page component to a Route

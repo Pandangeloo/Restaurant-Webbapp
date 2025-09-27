@@ -1,9 +1,10 @@
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Image from "../Image";
 import { useState } from "react";
-import createBooking from "../../utils/createBookings";
+import { createBooking } from "../../utils/bookings";
 
 //TODO: Change ALERTS to something nicer. Add email for not logged in user?
+///TODO: ADD USER.ID
 export default function BookTablePage() {
   const [form, setForm] = useState({
     name: "",
