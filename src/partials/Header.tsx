@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import routes from "../routes";
 import { useAuth } from "../useAuth";
 
@@ -9,7 +9,9 @@ export default function Header() {
   // (we use this to close it after a click/selection)
   const [expanded, setExpanded] = useState(false);
 
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+
+  const navigate = useNavigate();
 
   //  get the current route
   const pathName = useLocation().pathname;
@@ -61,6 +63,22 @@ export default function Header() {
                   </Nav.Link>
                 ))}
             </Nav>
+            {user && (
+              <Nav>
+                <Navbar.Text className="me-2">
+                  Signed in as: <strong>{user.firstName}</strong>
+                </Navbar.Text>
+                <Button
+                  variant="outline-light"
+                  onClick={async () => {
+                    await logout();
+                    navigate("/");
+                  }}
+                >
+                  Log out
+                </Button>
+              </Nav>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
