@@ -9,6 +9,7 @@ LoginPage.route = {
   path: "/login",
   menuLabel: "Sign in",
   index: 6,
+  allowedRoles: ["visitor"],
 };
 
 export default function LoginPage() {
