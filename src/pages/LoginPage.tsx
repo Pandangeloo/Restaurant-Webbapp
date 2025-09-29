@@ -1,17 +1,20 @@
 import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { login } from "../utils/auth";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../useAuth";
 
 LoginPage.route = {
   path: "/login",
   menuLabel: "Sign in",
   index: 6,
+  allowedRoles: ["visitor"],
 };
 
 export default function LoginPage() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -29,12 +32,15 @@ export default function LoginPage() {
     });
   };
 
-  //TODO: CHange JSON.stringify - it shows EVERYTHING
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const result = await login(form);
-      alert("Signed in: " + JSON.stringify(result));
+      const u = await login(form);
+      if (u.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/user");
+      }
     } catch (err: any) {
       alert("Wrong: " + err.message);
     }

@@ -11,6 +11,9 @@ AdminPage.route = {
       <AdminPage />
     </ProtectedRoute>
   ),
+  menuLabel: "Admin",
+  index: 7,
+  allowedRoles: ["admin"],
 };
 
 export default function AdminPage() {
