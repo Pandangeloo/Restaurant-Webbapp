@@ -38,7 +38,7 @@ export default function RegisterPage() {
 
     try {
       await registerUser(form);
-      alert("Welcome to The Axolotl");
+      alert("You are registred, Please sign in");
       navigate("/");
     } catch (err: any) {
       alert("Wrong:" + err.message);
