@@ -1,3 +1,11 @@
+export type CurrentUser = {
+  id: number;
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: "user" | "admin";
+};
+
 // LOGIN
 export async function login(data: { email: string; password: string }) {
   const res = await fetch("/api/login", {
@@ -29,17 +37,20 @@ export async function logout() {
 }
 
 // GET CURRENT USER
-export async function getCurrentUser() {
+
+export async function getCurrentUser(): Promise<CurrentUser | null> {
   const res = await fetch("/api/login", {
     method: "GET",
     credentials: "include",
   });
 
-  if (!res.ok) {
-    throw new Error("Failed to get current user");
-  }
+  if (!res.ok) return null;
 
-  return res.json();
+  try {
+    return (await res.json()) as CurrentUser;
+  } catch {
+    return null;
+  }
 }
 
 // REGISTER USER

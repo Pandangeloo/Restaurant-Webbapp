@@ -2,9 +2,15 @@
 
 import AdminBookings from "../parts/AdminBookings";
 import AdminTables from "../parts/AdminTables";
+import ProtectedRoute from "../parts/ProtectedRoute";
 
 AdminPage.route = {
   path: "/admin",
+  element: (
+    <ProtectedRoute requiredRole="admin">
+      <AdminPage />
+    </ProtectedRoute>
+  ),
 };
 
 export default function AdminPage() {
