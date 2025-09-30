@@ -4,6 +4,8 @@ export async function createBooking(data: {
   guests: number;
   date: string;
   time: string;
+  tableId?: number;
+  userId?: number;
 }) {
   const res = await fetch("/api/bookings", {
     method: "POST",
@@ -36,6 +38,8 @@ export async function updateBooking(
     guests?: number;
     date?: string;
     time?: string;
+    tableId?: number;
+    userId?: number;
   }
 ) {
   const res = await fetch(`/api/bookings/${id}`, {
