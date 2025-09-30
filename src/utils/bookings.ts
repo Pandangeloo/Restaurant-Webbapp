@@ -4,6 +4,8 @@ export async function createBooking(data: {
   guests: number;
   date: string;
   time: string;
+  tableId?: number;
+  userId?: number;
 }) {
   const res = await fetch("/api/bookings", {
     method: "POST",
@@ -36,6 +38,8 @@ export async function updateBooking(
     guests?: number;
     date?: string;
     time?: string;
+    tableId?: number;
+    userId?: number;
   }
 ) {
   const res = await fetch(`/api/bookings/${id}`, {
@@ -58,5 +62,18 @@ export async function deleteBooking(id: number) {
     throw new Error("Failed to delete booking");
   }
 
+  return res.json();
+}
+
+// FETCH BOOKINGS FROM MYBOOKINGS VIEW
+// NOTE: backend returns all rows; UserPage filters by userId on the client.
+export async function getMyBookings() {
+  const res = await fetch(`/api/MyBookings`, {
+    method: "GET",
+    credentials: "include",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch user bookings");
+  }
   return res.json();
 }

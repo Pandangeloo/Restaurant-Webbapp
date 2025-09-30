@@ -2,6 +2,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import Image from "../Image";
 import { useState } from "react";
 import { createBooking } from "../../utils/bookings";
+import { useAuth } from "../../useAuth";
 
 //TODO: Change ALERTS to something nicer. Add email for not logged in user?
 ///TODO: ADD USER.ID
@@ -12,6 +13,8 @@ export default function BookTablePage() {
     date: "",
     time: "",
   });
+
+  const { user } = useAuth();
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -29,16 +32,28 @@ export default function BookTablePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!form.name || !form.guests || !form.time || !form.date) {
+    if (!form.guests || !form.time || !form.date) {
       alert("Please fill in all required fields.");
       return;
     }
 
+    if (!user) {
+      alert("You must be logged in to make a booking.");
+      return;
+    }
+
+    const userId = user.id;
+    const userName = `${user.firstName} ${user.lastName}`;
+
     try {
-      await createBooking(form);
+      await createBooking({
+        ...form,
+        name: userName,
+        userId: userId,
+      });
       alert("Saved");
     } catch (err: any) {
-      alert("Wrong:" + err.message);
+      alert("Wrong: " + err.message);
     }
   };
 
@@ -56,11 +71,10 @@ export default function BookTablePage() {
             <Form.Label className="d-block">
               <p>Book table for up to 12 guests</p>
               <Form.Control
-                type="text"
+                type="readOnly"
                 name="name"
-                placeholder="Your name"
-                value={form.name}
-                onChange={handleChange}
+                placeholder="Log in to make your reservation"
+                value={user?.firstName + " " + user?.lastName}
               ></Form.Control>
               <Form.Control
                 type="number"
