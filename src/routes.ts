@@ -11,7 +11,7 @@ import HomePage from "./pages/HomePage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/RegisterPage.tsx";
 import AdminPage from "./pages/AdminPage.tsx";
-import UserPage from "./pages/userPage.tsx";
+import UserPage from "./pages/UserPage.tsx";
 
 export default [
   NotFoundPage,
