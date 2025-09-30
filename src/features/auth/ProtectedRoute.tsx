@@ -12,7 +12,8 @@ export default function ProtectedRoute({
   requiredRole,
 }: ProtectedRouteProps) {
   const { user, loading } = useAuth();
-
+  // todo: logout can land on /login (because of this redirect when user is null)
+  // would be nicer if logout always went to "/" instead?
   if (loading) {
     return <p>Loading...</p>;
   }
