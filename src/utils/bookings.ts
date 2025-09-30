@@ -64,3 +64,15 @@ export async function deleteBooking(id: number) {
 
   return res.json();
 }
+
+//GET BOOKINGS FOR A USER
+export async function getMyBookings() {
+  const res = await fetch(`/api/MyBookings`, {
+    method: "GET",
+    credentials: "include",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch user bookings");
+  }
+  return res.json();
+}
