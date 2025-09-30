@@ -1,5 +1,13 @@
-import { Row, Col, Button, Form, useState, useNavigate, Link } from "../index";
-import { useAuth } from "../useAuth";
+import {
+  Row,
+  Col,
+  Button,
+  Form,
+  useState,
+  useNavigate,
+  Link,
+} from "../../index";
+import { useAuth } from "./useAuth";
 
 LoginPage.route = {
   path: "/login",

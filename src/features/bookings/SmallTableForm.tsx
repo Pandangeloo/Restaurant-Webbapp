@@ -1,7 +1,7 @@
 import { Row, Col, Form, Button, useState } from "../../index";
-import Image from "../Image";
-import { createBooking } from "../../utils/bookings";
-import { useAuth } from "../../useAuth";
+import Image from "../../shared/Image";
+import { createBooking } from "../../api/bookings";
+import { useAuth } from "../auth/useAuth";
 
 //TODO: Change ALERTS to something nicer. Add email for not logged in user?
 ///TODO: ADD USER.ID

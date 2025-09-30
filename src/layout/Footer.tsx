@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "../index";
-import SocialIcons from "../parts/FooterParts/SocialIcons";
+import SocialIcons from "./SocialIcons";
 
 export default function Footer() {
   return (

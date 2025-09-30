@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "../sass/index.scss";
 import routes from "./routes";
 import App from "./App";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "./features/auth/AuthContext";
 
 // Create a router using settings/content from 'routes.tsx'
 const router = createBrowserRouter([

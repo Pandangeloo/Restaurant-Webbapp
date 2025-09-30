@@ -1,7 +1,7 @@
 import { useEffect, useState, Table, Container, Row, Col } from "../index";
-import ProtectedRoute from "../parts/ProtectedRoute";
-import { getMyBookings } from "../utils/bookings";
-import { useAuth } from "../useAuth";
+import ProtectedRoute from "../features/auth/ProtectedRoute";
+import { getMyBookings } from "../api/bookings";
+import { useAuth } from "../features/auth/useAuth";
 
 type Booking = {
   id: number;

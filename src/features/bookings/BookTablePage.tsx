@@ -1,6 +1,6 @@
-import { Row, Col } from "../index";
-import SmallTableForm from "../parts/BookingParts/SmallTableForm";
-import LargeTableForm from "../parts/BookingParts/LargeTableForm";
+import { Row, Col } from "../../index";
+import SmallTableForm from "./SmallTableForm";
+import LargeTableForm from "./LargeTableForm";
 
 BookTablePage.route = {
   path: "/book-a-table",

@@ -1,5 +1,5 @@
-import { Row, Col, Button, Form, useState, useNavigate } from "../index";
-import { registerUser } from "../utils/auth";
+import { Row, Col, Button, Form, useState, useNavigate } from "../../index";
+import { registerUser } from "../../api/auth";
 
 RegisterPage.route = {
   path: "/register",

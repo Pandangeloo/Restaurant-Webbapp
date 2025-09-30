@@ -1,4 +1,4 @@
-import Image from "../parts/Image";
+import Image from "../shared/Image";
 import { Carousel, Container, Row, Col } from "../index";
 
 HomePage.route = {

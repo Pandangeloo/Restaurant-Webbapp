@@ -1,6 +1,6 @@
-import type { ReactNode } from "../index";
-import { Navigate } from "../index";
-import { useAuth } from "../useAuth";
+import type { ReactNode } from "../../index";
+import { Navigate } from "../../index";
+import { useAuth } from "./useAuth";
 
 type ProtectedRouteProps = {
   children: ReactNode;

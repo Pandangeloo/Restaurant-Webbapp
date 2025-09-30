@@ -1,8 +1,8 @@
 //TODO: adminpage should see all bookings-change and cancel booking  and handle tables/times
 
-import AdminBookings from "../parts/AdminBookings";
-import AdminTables from "../parts/AdminTables";
-import ProtectedRoute from "../parts/ProtectedRoute";
+import AdminBookings from "./AdminBookings";
+import AdminTables from "./AdminTables";
+import ProtectedRoute from "../auth/ProtectedRoute";
 
 AdminPage.route = {
   path: "/admin",

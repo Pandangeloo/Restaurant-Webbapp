@@ -1,8 +1,8 @@
 import { useLocation } from "./index";
-import Header from "./partials/Header";
-import Main from "./partials/Main";
-import Footer from "./partials/Footer";
-import BootstrapBreakpoints from "./parts/BootstrapBreakpoints";
+import Header from "./layout/Header";
+import Main from "./layout/Main";
+import Footer from "./layout/Footer";
+import BootstrapBreakpoints from "./shared/BootstrapBreakpoints";
 
 // turn off when not needed for debugging
 const showBootstrapBreakpoints = true;

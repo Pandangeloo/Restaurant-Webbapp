@@ -1,5 +1,5 @@
 import { Row, Col, Form, Button, useState } from "../../index";
-import Image from "../Image";
+import Image from "../../shared/Image";
 
 BookTablePage.route = {
   path: "/book-a-table",

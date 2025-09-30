@@ -8,7 +8,7 @@ import {
   Navbar,
   Button,
 } from "../index";
-import { useAuth } from "../useAuth";
+import { useAuth } from "../features/auth/useAuth";
 import routes from "../routes";
 
 export default function Header() {

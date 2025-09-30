@@ -1,5 +1,5 @@
-import { Table, Button, Modal, Form, useEffect, useState } from "../index";
-import { getBookings, updateBooking, deleteBooking } from "../utils/bookings";
+import { Table, Button, Modal, Form, useEffect, useState } from "../../index";
+import { getBookings, updateBooking, deleteBooking } from "../../api/bookings";
 
 type Booking = {
   id: number;

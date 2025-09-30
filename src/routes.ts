@@ -4,13 +4,13 @@ import { createElement } from "react";
 // page components
 
 import NotFoundPage from "./pages/NotFoundPage.tsx";
-import BookTablePage from "./pages/BookTablePage.tsx";
+import BookTablePage from "./features/bookings/BookTablePage.tsx";
 import EventsPage from "./pages/EventsPage.tsx";
 import MenuPage from "./pages/MenuPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
-import LoginPage from "./pages/LoginPage.tsx";
-import RegisterPage from "./pages/RegisterPage.tsx";
-import AdminPage from "./pages/AdminPage.tsx";
+import LoginPage from "./features/auth/LoginPage.tsx";
+import RegisterPage from "./features/auth/RegisterPage.tsx";
+import AdminPage from "./features/admin/AdminPage.tsx";
 import UserPage from "./pages/UserPage.tsx";
 
 export default [

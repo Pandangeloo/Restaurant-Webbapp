@@ -1,10 +1,15 @@
-import { createContext, useEffect, useState, type ReactNode } from "./index";
+import {
+  createContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "../../index";
 import {
   getCurrentUser,
   type CurrentUser,
   login as apiLogin,
   logout as apiLogout,
-} from "./utils/auth";
+} from "../../api/auth";
 
 type AuthContextType = {
   user: CurrentUser | null;
