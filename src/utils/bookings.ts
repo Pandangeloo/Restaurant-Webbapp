@@ -65,7 +65,8 @@ export async function deleteBooking(id: number) {
   return res.json();
 }
 
-//GET BOOKINGS FOR A USER
+// FETCH BOOKINGS FROM MYBOOKINGS VIEW
+// NOTE: backend returns all rows; UserPage filters by userId on the client.
 export async function getMyBookings() {
   const res = await fetch(`/api/MyBookings`, {
     method: "GET",
