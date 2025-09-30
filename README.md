@@ -29,3 +29,16 @@ npm run dev
 ## Project Status ≽(๑•ᴗ•๑)≼
 
 🚧 Work in progress – features and documentation will be added as the project develops.
+
+## Global imports
+
+There is a global `index.ts` file in `src/` that re-exports commonly used
+components (React, React-Bootstrap, React Router, etc.).
+
+Instead of importing from many different places, you can import them all from the global index:
+
+```tsx
+import { Row, Col, Button, useState } from "../index"; // or "../../index" depending on file location
+```
+
+Note: since there is no path alias configured in this project, the path to index.ts must be written explicitly (../index)
