@@ -15,30 +15,53 @@ git clone https://github.com/Pandangeloo/Restaurant-Webbapp.git
 cd Restaurant-Webbapp
 ```
 
-### Run frontend
+### Run frontend + backend
+
+This project uses **react-rapide**, which runs both the React frontend and the .NET Minimal API backend together.
 
 ```bash
 npm install
 npm run dev
 ```
 
-👉 Backend instructions (for the .NET Minimal API) will be added later.
+No extra steps are needed — both parts start automatically
 
 ---
+
+## Tech stack
+
+**Frontend:** React (TypeScript), Vite, React-Bootstrap, React Router
+
+**Backend:** .NET Minimal API + SQLite  
+ Backend is provided as part of the school assignment.  
+ It automatically generates REST routes for all tables in the database.
+
+Other: Sass for styling, React Icons
+
+---
+
+## Features
+
+### Authentication & roles
+
+- Login and register users
+- Two roles available: **user** and **admin**
+- Different dashboards: `/user` for regular users, `/admin` for admins
+
+### User
+
+- Book a table online
+
+### Admin
+
+- View all bookings
+- Manage tables
+
+### General
+
+- Responsive design with React-Bootstrap grid
+- Some imports are centralized via src/index.ts for convenience
 
 ## Project Status ≽(๑•ᴗ•๑)≼
 
 🚧 Work in progress – features and documentation will be added as the project develops.
-
-## Global imports
-
-There is a global `index.ts` file in `src/` that re-exports commonly used
-components (React, React-Bootstrap, React Router, etc.).
-
-Instead of importing from many different places, you can import them all from the global index:
-
-```tsx
-import { Row, Col, Button, useState } from "../index"; // or "../../index" depending on file location
-```
-
-Note: since there is no path alias configured in this project, the path to index.ts must be written explicitly (../index)
