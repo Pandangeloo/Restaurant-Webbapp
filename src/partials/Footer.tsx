@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "../index";
 import SocialIcons from "../parts/FooterParts/SocialIcons";
 
 export default function Footer() {

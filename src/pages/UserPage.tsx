@@ -1,9 +1,7 @@
+import { useEffect, useState, Table, Container, Row, Col } from "../index";
 import ProtectedRoute from "../parts/ProtectedRoute";
 import { getMyBookings } from "../utils/bookings";
-import { useEffect, useState } from "react";
 import { useAuth } from "../useAuth";
-import { Table } from "react-bootstrap";
-import { Container, Row, Col } from "react-bootstrap";
 
 type Booking = {
   id: number;

@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from "../index";
+import { Navigate } from "../index";
 import { useAuth } from "../useAuth";
-import { Navigate } from "react-router-dom";
 
 type ProtectedRouteProps = {
   children: ReactNode;

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Table, Button, Modal, Form } from "react-bootstrap";
+import { Table, Button, Modal, Form, useEffect, useState } from "../index";
 import { getBookings, updateBooking, deleteBooking } from "../utils/bookings";
 
 type Booking = {

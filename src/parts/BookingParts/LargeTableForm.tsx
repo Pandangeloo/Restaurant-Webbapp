@@ -1,6 +1,5 @@
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form, Button, useState } from "../../index";
 import Image from "../Image";
-import { useState } from "react";
 
 BookTablePage.route = {
   path: "/book-a-table",

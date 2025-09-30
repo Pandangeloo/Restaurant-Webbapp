@@ -1,8 +1,4 @@
-import { Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Row, Col, Button, Form, useState, useNavigate, Link } from "../index";
 import { useAuth } from "../useAuth";
 
 LoginPage.route = {

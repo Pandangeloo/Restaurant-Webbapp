@@ -1,8 +1,15 @@
-import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import routes from "../routes";
+import {
+  useState,
+  Link,
+  useLocation,
+  useNavigate,
+  Container,
+  Nav,
+  Navbar,
+  Button,
+} from "../index";
 import { useAuth } from "../useAuth";
+import routes from "../routes";
 
 export default function Header() {
   // whether the navbar is expanded or not

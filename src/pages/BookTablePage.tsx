@@ -1,4 +1,4 @@
-import { Row, Col } from "react-bootstrap";
+import { Row, Col } from "../index";
 import SmallTableForm from "../parts/BookingParts/SmallTableForm";
 import LargeTableForm from "../parts/BookingParts/LargeTableForm";
 

@@ -1,9 +1,5 @@
-import { Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { useState } from "react";
+import { Row, Col, Button, Form, useState, useNavigate } from "../index";
 import { registerUser } from "../utils/auth";
-import { useNavigate } from "react-router-dom";
 
 RegisterPage.route = {
   path: "/register",

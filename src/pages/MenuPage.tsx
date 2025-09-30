@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Row } from "../index";
 
 MenuPage.route = {
   path: "/menu",
