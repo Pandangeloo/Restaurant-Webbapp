@@ -15,16 +15,52 @@ git clone https://github.com/Pandangeloo/Restaurant-Webbapp.git
 cd Restaurant-Webbapp
 ```
 
-### Run frontend
+### Run frontend + backend
+
+This project uses **react-rapide**, which runs both the React frontend and the .NET Minimal API backend together.
 
 ```bash
 npm install
 npm run dev
 ```
 
-👉 Backend instructions (for the .NET Minimal API) will be added later.
+No extra steps are needed — both parts start automatically
 
 ---
+
+## Tech stack
+
+**Frontend:** React (TypeScript), Vite, React-Bootstrap, React Router
+
+**Backend:** .NET Minimal API + SQLite  
+ Backend is provided as part of the school assignment.  
+ It automatically generates REST routes for all tables in the database.
+
+Other: Sass for styling, React Icons
+
+---
+
+## Features
+
+### Authentication & roles
+
+- Login and register users
+- Two roles available: **user** and **admin**
+- Different dashboards: `/user` for regular users, `/admin` for admins
+
+### User
+
+- Book a table online
+
+### Admin
+
+- View all bookings
+- Manage tables
+
+### General
+
+- Responsive design with React-Bootstrap grid
+- Some imports are centralized via src/index.ts for convenience
 
 ## Project Status ≽(๑•ᴗ•๑)≼
 

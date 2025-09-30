@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
-import { useAuth } from "../useAuth";
-import { Navigate } from "react-router-dom";
+import type { ReactNode } from "../../index";
+import { Navigate } from "../../index";
+import { useAuth } from "./useAuth";
 
 type ProtectedRouteProps = {
   children: ReactNode;
@@ -12,7 +12,8 @@ export default function ProtectedRoute({
   requiredRole,
 }: ProtectedRouteProps) {
   const { user, loading } = useAuth();
-
+  // todo: logout can land on /login (because of this redirect when user is null)
+  // would be nicer if logout always went to "/" instead?
   if (loading) {
     return <p>Loading...</p>;
   }

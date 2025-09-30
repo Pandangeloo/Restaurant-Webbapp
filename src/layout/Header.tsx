@@ -1,8 +1,15 @@
-import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
+import {
+  useState,
+  Link,
+  useLocation,
+  useNavigate,
+  Container,
+  Nav,
+  Navbar,
+  Button,
+} from "../index";
+import { useAuth } from "../features/auth/useAuth";
 import routes from "../routes";
-import { useAuth } from "../useAuth";
 
 export default function Header() {
   // whether the navbar is expanded or not
@@ -68,6 +75,7 @@ export default function Header() {
                 <Navbar.Text className="me-2">
                   Signed in as: <strong>{user.firstName}</strong>
                 </Navbar.Text>
+                {/* todo: logout can land on /login (because of ProtectedRoute). Might fix*/}
                 <Button
                   variant="outline-light"
                   onClick={async () => {

@@ -1,102 +1,80 @@
-import { Row, Col, Form, Button } from "react-bootstrap";
-import Image from "../Image";
-import { useState } from "react";
-import { createBooking } from "../../utils/bookings";
-import { useAuth } from "../../useAuth";
+import { Row, Col, Form, Button, useState } from "../../index";
+import Image from "../../shared/Image";
 
-//TODO: Change ALERTS to something nicer. Add email for not logged in user?
-///TODO: ADD USER.ID
+BookTablePage.route = {
+  path: "/book-a-table",
+  menuLabel: "Book a table",
+  index: 2,
+};
+
 export default function BookTablePage() {
   const [form, setForm] = useState({
     name: "",
-    guests: 1,
+    guests: "",
+    email: "",
     date: "",
     time: "",
   });
-
-  const { user } = useAuth();
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    const { name, value } = e.target;
-    setForm({
-      ...form,
-      [name]:
-        name === "guests" ? Math.max(1, Math.min(12, Number(value))) : value,
-    });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!form.guests || !form.time || !form.date) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    if (!user) {
-      alert("You must be logged in to make a booking.");
-      return;
-    }
-
-    const userId = user.id;
-    const userName = `${user.firstName} ${user.lastName}`;
-
-    try {
-      await createBooking({
-        ...form,
-        name: userName,
-        userId: userId,
-      });
-      alert("Saved");
-    } catch (err: any) {
-      alert("Wrong: " + err.message);
-    }
-  };
-
   return (
     <>
       <Row>
         <Col>
-          <h5>Book a table</h5>
+          <h5>Book table for larger groups</h5>
           <Image
-            src="/images/BookTable.jpg"
-            alt="A photo of basil a fork and spices."
+            src="/images/BookTableGroup.jpg"
+            alt="A photo of tomatoes, olives, red wine, basil and bread."
           />
-
           <Form.Group>
             <Form.Label className="d-block">
-              <p>Book table for up to 12 guests</p>
+              <p>Send us an enquiry for bookings of 13+</p>
               <Form.Control
-                type="readOnly"
+                type="text"
                 name="name"
-                placeholder="Log in to make your reservation"
-                value={user?.firstName + " " + user?.lastName}
+                placeholder="Your name"
+                value={form.name}
+                onChange={handleChange}
+                required
+              ></Form.Control>
+              <Form.Control
+                type="text"
+                name="email"
+                placeholder="Your email"
+                value={form.email}
+                onChange={handleChange}
+                required
               ></Form.Control>
               <Form.Control
                 type="number"
                 name="guests"
                 placeholder="Party size"
-                min={1}
-                max={12}
+                min={13}
                 value={form.guests}
                 onChange={handleChange}
+                required
               ></Form.Control>
               <Form.Control
                 type="date"
                 name="date"
                 value={form.date}
-                className="mb-2"
                 onChange={handleChange}
+                required
+                className="mb-2"
               />
 
+              {/* Tid */}
               <Form.Select
                 name="time"
                 value={form.time}
                 onChange={handleChange}
+                required
               >
                 <option value="">Select a time</option>
                 <option value="17:00">17:00</option>
@@ -111,9 +89,7 @@ export default function BookTablePage() {
               </Form.Select>
             </Form.Label>
           </Form.Group>
-          <Button className="mt-4 float-end" onClick={handleSubmit}>
-            Book
-          </Button>
+          <Button className="mt-4 float-end">Enquire now</Button>
         </Col>
       </Row>
     </>

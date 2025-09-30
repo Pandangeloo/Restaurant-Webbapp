@@ -1,4 +1,4 @@
-import { Form, Row, Col, Button, FormSelect } from "react-bootstrap";
+import { Form, Row, Col, Button, FormSelect } from "../index";
 
 EventsPage.route = {
   path: "/events",
@@ -6,6 +6,7 @@ EventsPage.route = {
   index: 3,
 };
 
+//TODO: make this form work and send an email to admin
 export default function EventsPage() {
   return (
     <Row>

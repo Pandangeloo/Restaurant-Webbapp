@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { Table, Button, Modal, Form } from "react-bootstrap";
+import { useEffect, useState, Table, Button, Modal, Form } from "../../index";
 import {
   getTables,
   updateTables,
   deleteTables,
   createTables,
-} from "../utils/tables";
+} from "../../api/tables";
 
 type Tables = {
   id: number;

@@ -1,6 +1,5 @@
-import Carousel from "react-bootstrap/Carousel";
-import Image from "../parts/Image";
-import { Container, Row, Col } from "react-bootstrap";
+import Image from "../shared/Image";
+import { Carousel, Container, Row, Col } from "../index";
 
 HomePage.route = {
   path: "/",
@@ -10,7 +9,10 @@ export default function HomePage() {
     <>
       <Carousel>
         <Carousel.Item>
-          <Image src="/images/homepageimgs/salmon.jpg" text="First slide" />
+          <Image
+            src="/images/homepageimgs/salmon.jpg"
+            alt="Fresh salmon with lemon"
+          />
           <Carousel.Caption>
             <h3>Fresh Salmon with Love</h3>
             <p>
@@ -20,7 +22,10 @@ export default function HomePage() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <Image src="/images/homepageimgs/veggiepan.jpg" text="Second slide" />
+          <Image
+            src="/images/homepageimgs/veggiepan.jpg"
+            alt="Vegan pan with bell peppers adn vegetables"
+          />
           <Carousel.Caption>
             <h3>Colorful Veggie Delight</h3>
             <p>
@@ -32,7 +37,7 @@ export default function HomePage() {
         <Carousel.Item>
           <Image
             src="/images/homepageimgs/ingredients.jpg"
-            text="Third slide"
+            alt="Different kind of fresh ingredients on a table"
           />
           <Carousel.Caption>
             <h3>It All Starts with Ingredients</h3>
