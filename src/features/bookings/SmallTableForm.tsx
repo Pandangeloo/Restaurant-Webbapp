@@ -4,8 +4,10 @@ import { createBooking } from "../../api/bookings";
 import { useAuth } from "../auth/useAuth";
 import AvailableTimesButtons from "./AvailableTimesButtons";
 
-//TODO: Change ALERTS to something nicer. Add email for not logged in user?
-///TODO: ADD USER.ID
+//TODO: Change ALERTS to something nicer.
+
+//Only logged in users/admin can book a table
+//User name is taken from the logged in user and cannot be changed in the form
 
 export default function BookTablePage() {
   const [form, setForm] = useState({
