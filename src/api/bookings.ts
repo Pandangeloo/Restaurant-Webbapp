@@ -1,11 +1,13 @@
-//CREATE A BOOKING
+/*CREATE A BOOKING
+Note: tableId must stay optional (?) because it’s not known when the form is created, 
+      it’s only set later via getAvailableTable*/
 export async function createBooking(data: {
   name: string;
   guests: number;
   date: string;
   time: string;
   tableId?: number;
-  userId?: number;
+  userId: number;
 }) {
   const res = await fetch("/api/bookings", {
     method: "POST",
@@ -14,7 +16,8 @@ export async function createBooking(data: {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to create booking");
+    const errorText = await res.text();
+    throw new Error(errorText || "Failed to create booking");
   }
 
   return res.json();
