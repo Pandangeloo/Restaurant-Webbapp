@@ -1,5 +1,7 @@
-import { Table, Button, Modal, Form, useEffect, useState } from "../../index";
+import { Table, useEffect, useState } from "../../index";
 import { getBookings, updateBooking, deleteBooking } from "../../api/bookings";
+import { EditButton, CancelButton } from "./AdminButtons";
+import AdminModal from "./AdminModal";
 
 type Booking = {
   id: number;
@@ -52,85 +54,33 @@ export default function AdminBookings() {
               <td>{b.date}</td>
               <td>{b.time}</td>
               <td>
-                <Button
-                  variant="primary"
+                <EditButton
                   onClick={() => {
                     setEditing(b);
                     setShowModal(true);
                   }}
-                >
-                  Edit
-                </Button>{" "}
-                <Button variant="danger" onClick={() => handleDelete(b.id)}>
-                  Cancel
-                </Button>
+                />
+                <CancelButton onClick={() => handleDelete(b.id)} />
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
 
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Booking</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {editing && (
-            <Form>
-              <Form.Group>
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  value={editing.name}
-                  onChange={(e) =>
-                    setEditing({ ...editing, name: e.target.value })
-                  }
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Guests</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={editing.guests}
-                  onChange={(e) =>
-                    setEditing({
-                      ...editing,
-                      guests: parseInt(e.target.value, 10),
-                    })
-                  }
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Date</Form.Label>
-                <Form.Control
-                  type="date"
-                  value={editing.date}
-                  onChange={(e) =>
-                    setEditing({ ...editing, date: e.target.value })
-                  }
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Time</Form.Label>
-                <Form.Control
-                  type="time"
-                  value={editing.time}
-                  onChange={(e) =>
-                    setEditing({ ...editing, time: e.target.value })
-                  }
-                />
-              </Form.Group>
-            </Form>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-          <Button variant="success" onClick={handleSave}>
-            Save
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <AdminModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        onSave={handleSave}
+        editing={editing}
+        setEditing={setEditing}
+        title="Edit Booking"
+        fields={[
+          { name: "name", label: "Name", type: "text" },
+          { name: "guests", label: "Guests", type: "number" },
+          { name: "date", label: "Date", type: "date" },
+          { name: "time", label: "Time", type: "time" },
+        ]}
+      />
     </div>
   );
 }
