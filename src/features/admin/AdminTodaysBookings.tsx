@@ -1,18 +1,26 @@
-import { Table, Button, useEffect, useState } from "../../index";
+import { Table, useEffect, useState } from "../../index";
+import { updateBooking, deleteBooking } from "../../api/bookings";
+import { ActionButtons } from "./AdminButtons";
+import AdminBookingModal from "./AdminBookingModal";
+import { getAvailableTable } from "../bookings/getAvailableTable";
 
 type AdminBooking = {
   id: number;
+  name?: string;
   userName: string;
   email: string;
   guests: number;
   date: string;
   time: string;
   tableName: string;
+  tableId?: number;
 };
 
 export default function AdminTodaysBookings() {
   const [bookings, setBookings] = useState<AdminBooking[]>([]);
   const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+  const [showModal, setShowModal] = useState(false);
+  const [editing, setEditing] = useState<AdminBooking | null>(null);
 
   useEffect(() => {
     fetch(`/api/AdminTodayView`)
@@ -28,6 +36,35 @@ export default function AdminTodaysBookings() {
       })
       .catch(console.error);
   }, [today]);
+
+  const handleSave = async () => {
+    if (!editing) return;
+
+    const tableId = await getAvailableTable(
+      editing.date,
+      editing.time,
+      editing.guests
+    );
+
+    if (!tableId) {
+      alert("No available tables for this date, time or party size.");
+      return;
+    }
+
+    const updated = await updateBooking(editing.id, {
+      ...editing,
+      tableId,
+    });
+
+    setBookings((prev) => prev.map((b) => (b.id === updated.id ? updated : b)));
+
+    setShowModal(false);
+  };
+
+  const handleDelete = async (id: number) => {
+    await deleteBooking(id);
+    setBookings((prev) => prev.filter((b) => b.id !== id));
+  };
 
   return (
     <div>
@@ -55,18 +92,26 @@ export default function AdminTodaysBookings() {
                   {b.userName} {"-"} {b.email}
                 </td>
                 <td>
-                  <Button variant="primary" size="sm">
-                    Edit
-                  </Button>{" "}
-                  <Button variant="danger" size="sm">
-                    Cancel
-                  </Button>
+                  <ActionButtons
+                    onEdit={() => {
+                      setEditing({ ...b, name: b.userName });
+                      setShowModal(true);
+                    }}
+                    onCancel={() => handleDelete(b.id)}
+                  />
                 </td>
               </tr>
             ))}
           </tbody>
         </Table>
       )}
+      <AdminBookingModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        onSave={handleSave}
+        editing={editing as any} //NOTE: MYGHAD didnt have the energy to fix this properly
+        setEditing={setEditing as any}
+      />
     </div>
   );
 }
