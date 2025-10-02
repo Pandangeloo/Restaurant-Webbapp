@@ -12,7 +12,7 @@ export default function EventsPage() {
     <Row>
       <Col>
         <Form>
-          <h1>What kind of event?</h1>
+          <h1>What kind of event? / UNDER CONSTRUCTION - DOES NOT WORK</h1>
           <p>After your inquiry we will be in touch in 3-5 workdays</p>
           <Form.Group>
             <Form.Label>

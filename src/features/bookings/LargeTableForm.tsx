@@ -27,7 +27,9 @@ export default function BookTablePage() {
     <>
       <Row>
         <Col>
-          <h5>Book table for larger groups</h5>
+          <h5>
+            Book table for larger groups / UNDER CONSTRUCTION - DOES NOT WORK
+          </h5>
           <Image
             src="/images/BookTableGroup.jpg"
             alt="A photo of tomatoes, olives, red wine, basil and bread."
