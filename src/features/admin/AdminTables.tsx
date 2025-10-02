@@ -5,7 +5,7 @@ import {
   deleteTables,
   createTables,
 } from "../../api/tables";
-import { EditButton, CancelButton, AddButton } from "./AdminButtons";
+import { ActionButtons, AddButton } from "./AdminButtons";
 import AdminModal from "./AdminModal";
 
 type Tables = {
@@ -72,13 +72,13 @@ export default function AdminTables() {
               <td>{t.name}</td>
               <td>{t.seats}</td>
               <td>
-                <EditButton
-                  onClick={() => {
+                <ActionButtons
+                  onEdit={() => {
                     setEditing(t);
                     setShowModal(true);
                   }}
+                  onCancel={() => handleDelete(t.id)}
                 />
-                <CancelButton onClick={() => handleDelete(t.id)} />
               </td>
             </tr>
           ))}
