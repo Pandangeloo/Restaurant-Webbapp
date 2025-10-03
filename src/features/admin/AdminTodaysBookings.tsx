@@ -88,7 +88,7 @@ export default function AdminTodaysBookings() {
                 <td>{b.time}</td>
                 <td>{b.tableName}</td>
                 <td>{b.guests}</td>
-                <td>
+                <td className="user-cell">
                   {b.userName} {"-"} {b.email}
                 </td>
                 <td>
