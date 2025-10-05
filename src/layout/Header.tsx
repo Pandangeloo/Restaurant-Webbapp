@@ -79,8 +79,9 @@ export default function Header() {
                 <Button
                   variant="outline-light"
                   onClick={async () => {
-                    await logout();
                     navigate("/");
+                    await logout();
+                    setExpanded(false);
                   }}
                 >
                   Log out
