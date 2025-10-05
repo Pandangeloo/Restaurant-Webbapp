@@ -25,6 +25,9 @@ export default function AdminBookings() {
   useEffect(() => {
     getBookings().then((data: Booking[]) => {
       const now = new Date();
+      now.setDate(now.getDate() + 1); // QUICK FIX: show only bookings from tomorrow and onwards
+      // This is just to avoid confusion since updates made in AdminTodaysBookings
+      // don't automatically show here without a page refresh.
       const upcoming = data.filter(
         (b) => new Date(`${b.date}T${b.time}`) >= now
       );
