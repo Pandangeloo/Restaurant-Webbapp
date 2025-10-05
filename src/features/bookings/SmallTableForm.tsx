@@ -131,7 +131,7 @@ export default function SmallTableForm() {
             />
           </Form.Label>
         </Form.Group>
-        <Button className="mt-4 float-end" onClick={handleSubmit}>
+        <Button className="mt-4 mb-4 float-end" onClick={handleSubmit}>
           Book
         </Button>
       </Col>
