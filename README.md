@@ -3,7 +3,8 @@
 A web application for booking tables at **The Axolotl** restaurant.
 Built with **React (TypeScript)**, **.NET Minimal API**, and **SQLite**.
 
-This is a school project and currently a **work in progress**.
+This is a school project that is now completed and ready for grading.  
+Further improvements may be added after evaluation.
 
 ## ᓬ(ᵔ⤙ᵔ๑)ᕒ Getting Started
 
@@ -64,4 +65,48 @@ Other: Sass for styling, React Icons
 
 ## Project Status ≽(๑•ᴗ•๑)≼
 
-🚧 Work in progress – features and documentation will be added as the project develops.
+The project is finished for now and ready for grading.  
+After the teacher’s review, I’ll be free to continue improving and adding new features.
+
+## Detailed Development Notes
+
+### Future Improvements
+
+AvailableTimes:
+Currently, one API call is made per time slot to check availability.
+This should be replaced with a solution that fetches all relevant data once and handles the logic in the frontend.
+
+Booking duration (2-hour rule):
+Implement a two-hour rule so tables can’t be double-booked too close together.
+
+Prevent past bookings:
+Add a validation to prevent users from selecting dates and times that have already passed.
+
+Multiple parties per table:
+Add support for allowing multiple smaller groups to share a larger table,
+as long as the total guest capacity isn’t exceeded.
+
+Guest (visitor) bookings:
+Allow non-logged-in users to send booking requests that can be approved or denied by an admin.
+
+Large party requests:
+Add support for booking requests for groups larger than 12 people or event-related bookings,
+which the admin can review and manage manually.
+
+Error and toast handling:
+Replace alert() messages with Bootstrap toasts or snackbars,
+and add a unified handler for all errors and notifications.
+
+Improved admin view:
+Split the admin interface into two sections or tabs — one for bookings and one for tables — for better structure and clarity.
+
+Tables:
+Currently, a table can’t be deleted if it has existing bookings because the tableId column doesn’t allow NULL.
+
+Datepicker for opening hours:
+Add a datepicker or similar UI component to make it easier for admins to update opening hours.
+
+## 🦎 About the Project
+
+This project was created as part of a web development course.  
+Just like an axolotl, it’s small, curious, and still growing. 🌱
