@@ -38,11 +38,7 @@ export default function AdminBookingModal({
         <Form>
           <Form.Group className="mb-2">
             <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={editing.name}
-              onChange={(e) => setEditing({ ...editing, name: e.target.value })}
-            />
+            <div className="form-control-plaintext">{editing.name}</div>
           </Form.Group>
 
           <Form.Group className="mb-2">
