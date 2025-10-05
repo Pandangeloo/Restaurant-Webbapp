@@ -74,13 +74,13 @@ export default function Header() {
               <Nav>
                 <Navbar.Text className="me-2">
                   Signed in as: <strong>{user.firstName}</strong>
-                </Navbar.Text>
-                {/* todo: logout can land on /login (because of ProtectedRoute). Might fix*/}
+                </Navbar.Text>                
                 <Button
                   variant="outline-light"
                   onClick={async () => {
-                    await logout();
                     navigate("/");
+                    await logout();
+                    setExpanded(false);
                   }}
                 >
                   Log out
