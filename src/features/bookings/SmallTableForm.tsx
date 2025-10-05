@@ -32,8 +32,7 @@ export default function SmallTableForm() {
 
     setForm((prev) => ({
       ...prev,
-      [name]:
-        name === "guests" ? Math.max(1, Math.min(12, Number(value))) : value,
+      [name]: value,
     }));
   };
 
@@ -62,12 +61,14 @@ export default function SmallTableForm() {
       return;
     }
 
+    const guests = Math.max(1, Math.min(12, Number(form.guests)));
     const userId = user.id;
     const userName = `${user.firstName} ${user.lastName}`;
 
     try {
       await createBooking({
         ...form,
+        guests,
         name: userName,
         userId: userId,
       });
@@ -75,6 +76,7 @@ export default function SmallTableForm() {
 
       navigate(user.role === "admin" ? "/admin" : "/user");
     } catch (err: any) {
+      12;
       const msg = err.message.includes("UNIQUE constraint failed")
         ? "That table is already booked at that time."
         : "Something went wrong when saving the booking.";
@@ -93,12 +95,17 @@ export default function SmallTableForm() {
         <Form.Group>
           <Form.Label className="d-block">
             <p>Book table for up to 12 guests</p>
-            <Form.Control
-              type="readOnly"
-              name="name"
-              placeholder="Log in to make your reservation"
-              value={user?.firstName + " " + user?.lastName}
-            />
+
+            {user ? (
+              <div className="form-control-plaintext mb-2">
+                {user.firstName} {user.lastName}
+              </div>
+            ) : (
+              <p className="text-danger mb-2">
+                Must be logged in to book table.
+              </p>
+            )}
+
             <Form.Control
               type="number"
               name="guests"
