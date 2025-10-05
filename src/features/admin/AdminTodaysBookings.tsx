@@ -51,12 +51,26 @@ export default function AdminTodaysBookings() {
       return;
     }
 
-    const updated = await updateBooking(editing.id, {
-      ...editing,
+    await updateBooking(editing.id, {
+      guests: editing.guests,
+      date: editing.date,
+      time: editing.time,
       tableId,
     });
 
-    setBookings((prev) => prev.map((b) => (b.id === updated.id ? updated : b)));
+    setBookings((prev) =>
+      prev.map((b) =>
+        b.id === editing.id
+          ? {
+              ...b,
+              guests: editing.guests,
+              date: editing.date,
+              time: editing.time,
+              tableId,
+            }
+          : b
+      )
+    );
 
     setShowModal(false);
   };
